@@ -1,0 +1,7 @@
+methods: [ipopt]
+benchmark: e4/chip_layout
+seeds: [0]
+
+device: cpu
+multi_start: 20
+eval_points: pal/configs/eval_points/e4.json

@@ -1,0 +1,154 @@
+# Main-paper ablation on hardened synthetic benchmarks s1-s6.
+#
+# One anchor row (`full_pal`) with the default hparams; every other row flips
+# one knob (or the coupled obj-target x tau_d pair).
+#
+# Dispatch:
+#   scripts/launch_ablation.sh \
+#       --ablation pal/configs/ablations/s1_s6.yaml \
+#       --runs-root $SCRATCH/pal_ablation_s1_s6/runs \
+#       --log-dir   $SCRATCH/pal_ablation_s1_s6/logs \
+#       --jobs-file $SCRATCH/pal_ablation_s1_s6/jobs.jsonl
+#
+# Render:
+#   python scripts/aggregate.py
+#   python scripts/render_ablation.py \
+#       --ablation pal/configs/ablations/s1_s6.yaml --format latex
+
+ablation_name: main_synthetic_s1_s6
+description: Main-paper ablation on hardened synthetic benchmarks s1-s6.
+method: pal_loggap
+benchmarks:
+  - s1_sphere_track
+  - s2_active_set_switch
+  - s3_illcond_tube
+  - s4_qv_coupling
+  - s5_overdetermined
+  - s6_redundant_ineq
+# Benches run one row per task (default for --max-parallel-benchmarks in
+# launch_ablation.sh). s6 is the slowest bench (75 ineqs + 15 pin eqs).
+max_parallel_benchmarks:
+  - s6_redundant_ineq
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+anchor: full_pal
+
+# Table display. `latex_sci` formats floats as $10^{n}$ or $a \times 10^{n}$.
+display:
+  display_labels:
+    proj_delta: "$\\delta$"
+    proj_lambda_min: "$\\lambda_{\\min}^{\\text{proj}}$"
+    rate: "$\\gamma$"
+    max_decades: "$D_{\\text{max}}$"
+    tau: "$\\tau_c$"
+    disp_tol: "$\\tau_d$"
+    lr: "LR"
+    cpre_obj_straight_through: "$f$"
+    monotone_multiplier: "Decay"
+  format:
+    proj_delta: latex_sci
+    proj_lambda_min: latex_sci
+    rate: latex_sci
+    tau: latex_sci
+    disp_tol: latex_sci
+    lr: latex_sci
+  value_map:
+    cpre_obj_straight_through:
+      false: "$f(\\hat y)$"
+      true: "$f(\\tilde y)$"
+    # Column reads "decay enabled?": monotone_multiplier=true disables decay.
+    monotone_multiplier:
+      false: "\\checkmark"
+      true: "$\\times$"
+
+base_hparams:
+  # training
+  lr: 1.0e-4
+  grad_clip: 20.0
+  # projection
+  proj_delta: 1.0e-3
+  proj_lambda_min: 1.0e-6
+  # multiplier (log-gap)
+  rate: 1.0e-2
+  max_decades: 1.0
+  # tolerances
+  # tau omitted: the bench's spec.tau applies (1e-4 on synthetic benches).
+  disp_tol: 1.0e-4
+  # loss design
+  cpre_obj_straight_through: false    # obj on y_hat (default); true = obj on y_tilde
+  # multiplier rule
+  monotone_multiplier: false          # bidirectional decay (default); true = monotone-only growth
+  # gradient quality
+  detach_j: true
+
+scenarios:
+  - label: full_pal
+
+  # --- delta damping sweep ---
+  - label: abl_delta_0
+    overrides: {proj_delta: 0.0}
+  - label: abl_delta_1e-4
+    overrides: {proj_delta: 1.0e-4}
+  - label: abl_delta_1e-2
+    overrides: {proj_delta: 1.0e-2}
+
+  # --- gamma (rate) sweep ---
+  - label: abl_rate_1e-3
+    overrides: {rate: 1.0e-3}
+  - label: abl_rate_1e-1
+    overrides: {rate: 1.0e-1}
+
+  # --- max_decades sweep ---
+  - label: abl_decades_0.2
+    overrides: {max_decades: 0.2}
+  - label: abl_decades_5.0
+    overrides: {max_decades: 5.0}
+
+  # Large gamma with a tight D_max cap.
+  - label: abl_rate_1e-1_decades_0.1
+    overrides: {rate: 1.0e-1, max_decades: 0.1}
+
+  # --- monotone multiplier (decay off) ---
+  # monotone_multiplier=true clamps the log-gap increment at 0, so w never decays.
+  - label: abl_monotone_mult
+    overrides: {monotone_multiplier: true}
+
+  # --- projector damping fully off ---
+  # Undamped Newton needs all three damping sources at zero: delta, its floor
+  # proj_lambda_min, and the eigh-fallback diagonal shift proj_eigh_fallback_reg.
+  - label: abl_proj_lambdamin_0_delta_0
+    overrides:
+      proj_lambda_min: 0.0
+      proj_delta: 0.0
+      proj_eigh_fallback_reg: 0.0
+
+  # --- tau_c (constraint tolerance) ---
+  - label: abl_tauC_1e-4
+    overrides: {tau: 1.0e-4}
+
+  # --- tau_d (displacement tolerance) standalone ---
+  - label: abl_tauD_1e-2
+    overrides: {disp_tol: 1.0e-2}
+
+  # --- learning rate sweep ---
+  - label: abl_lr_1e-3
+    overrides: {lr: 1.0e-3}
+
+  # --- obj target x tau_d (coupled) ---
+  # With tight tau_d, y_hat ~ y_tilde and both objective targets agree.
+  - label: abl_obj_yproj_tauD_tight
+    overrides: {cpre_obj_straight_through: true, disp_tol: 1.0e-4}
+  - label: abl_obj_yproj_tauD_loose
+    overrides: {cpre_obj_straight_through: true, disp_tol: 1.0e-1}
+  - label: abl_obj_yhat_tauD_loose
+    overrides: {cpre_obj_straight_through: false, disp_tol: 1.0e-1}
+
+  # --- loss-term ablations: a huge tolerance keeps the multiplier at its
+  # 1e-6 floor, which switches the corresponding loss term off.
+  - label: abl_no_constraint_loss
+    overrides: {tau: 1.0e+10}
+  - label: abl_no_disp_loss
+    overrides: {disp_tol: 1.0e+10}
+
+  # Both loss terms off: the pre-projection output optimizes the objective only.
+  - label: abl_no_either_loss
+    overrides: {tau: 1.0e+10, disp_tol: 1.0e+10}

@@ -1,0 +1,17 @@
+{
+  "benchmark": "e4",
+  "frozen_at": "2026-04-30",
+  "rationale": "Unconditional benchmark (condition_dim=0, zeta_dim=8) — single zero-zeta evaluation point. All methods evaluate at the same fixed point so per-method gap-to-IPOPT joins on (bench, seed) directly. IPOPT multistart=20 explores the basin.",
+  "points": [
+    {"zeta": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "condition": []}
+  ],
+  "ipopt": {
+    "n_multistarts": 20,
+    "max_iter": 500,
+    "tol": 1e-6,
+    "constr_viol_tol": 1e-4,
+    "mu_strategy": "adaptive",
+    "mu_oracle": "quality-function",
+    "hessian_approximation": "limited-memory"
+  }
+}

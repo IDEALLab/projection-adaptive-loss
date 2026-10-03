@@ -1,0 +1,27 @@
+# DC3 hparams, nonconvex tier (Donti, Rolnick & Kolter, arXiv:2104.12225v1), all benches except e3.
+# Source: locuslab/DC3 @ 35437af, default_args.py::method_default_args('nonconvex').
+
+epochs: 2000                # paper: 1000
+batch_size: 200             # paper value, the runner overrides it per bench
+lr: 1.0e-4                  # default_args.py:161
+grad_clip: 0.0              # paper silent -> disabled
+
+# Backbone (CoordinationMLP)
+hidden: 512                 # paper default_args.py:162 = 200
+n_layers: 4                 # paper method.py:359 = 2
+
+soft_weight: 10.0           # default_args.py:163; x10 at runtime when use_compl=False
+soft_eq_frac: 0.5           # default_args.py:164
+
+use_train_corr: true        # default_args.py:166
+use_test_corr: true         # default_args.py:167
+corr_train_steps: 10        # default_args.py:169
+corr_test_max_steps: 10     # default_args.py:170
+corr_eps: 1.0e-4            # default_args.py:171
+corr_lr: 1.0e-7             # default_args.py:172
+corr_momentum: 0.5          # default_args.py:173
+
+# Newton completion (not in the DC3 paper)
+newton_max_iter: 20
+newton_tol: 1.0e-6
+newton_reg: 1.0e-8

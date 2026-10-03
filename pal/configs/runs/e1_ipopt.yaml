@@ -1,0 +1,7 @@
+methods: [ipopt]
+benchmark: e1/bwb
+seeds: [0]
+
+device: cpu
+multi_start: 20
+eval_points: pal/configs/eval_points/e1.json

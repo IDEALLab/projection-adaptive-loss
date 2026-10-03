@@ -1,0 +1,301 @@
+name: wingbox
+
+# Parametric wingbox: BWB skin (shell) + internal spar structure.
+# Spars are oversized boxes, swept and positioned, then cookie-cut by
+# the BWB OML. Half-span construction mirrored onto xz plane.
+#
+# NOTE: Shell at the trailing edge looks wrong due to high curvature,
+# the constant SDF offset pulls the inner wall far from the thin TE.
+# Fundamental limitation of SDF shell. Structurally negligible region.
+
+bounds:
+  x: [-1.4, 0.4]
+  y: [-1.2, 1.2]
+  z: [-0.4, 0.4]
+  resolution: 128
+  batch_size: 1
+
+bindings:
+  bwb_conditions:
+    shape: [B, 9]
+    map:
+      0: {B1: 0.15}
+      1: {B2: 0.125}
+      2: {B3: 0.45}
+      3: {C2: 0.7}
+      4: {C3: 0.23}
+      5: {C4: 0.075}
+      6: {S1: 50.0}
+      7: {S2: 50.0}
+      8: {S3: 32.0}
+  structural:
+    shape: [B, 14]
+    map:
+      # Skin wall thickness
+      0: {skin_t: 0.008}
+      # Front spar, swept at S3 minus small angle, toward LE
+      # x-flip in BWB model: LE at x~+0.2, TE at x~-1.2
+      1: {front_spar_x: -0.25}
+      2: {front_spar_w: 0.030}
+      3: {front_spar_dev: 3.0}
+      # Rear spar, straight (angle=0), toward TE
+      4: {rear_spar_x: -0.50}
+      5: {rear_spar_w: 0.035}
+      # Battery bay, chordwise length, span, height, vertical offset
+      6: {bat_x: 1.0}
+      7: {bat_y: 0.15}
+      8: {bat_z: 0.06}
+      9: {bat_z_center: 0.0}
+      # Chordwise ribs, evenly spaced from rib_start_y to rib_end_y
+      10: {rib_start_y: 0.20}
+      11: {rib_end_y: 0.85}
+      12: {rib_w: 0.025}
+      # Center body ribs, solid, at y=0 (centerline), 1/3 and 2/3 of rib_start_y
+      13: {center_rib_w: 0.020}
+
+shapes:
+  # ===================================================================
+  # BWB outer mold line
+  #
+  # The `bwb` shape is INJECTED by build_wingbox.build_program() at load
+  # time (analytical bicubic-Bezier surface from
+  # e1_bwb/analytical_bwb/geometry.py + an x-flip mirror to match
+  # aircraft convention, LE at +x, TE at -x).
+  #
+  # This YAML is NOT meant to be loaded directly via
+  # CADProgram.load_from_yaml(): the structural tree below references
+  # `bwb`, which will fail validation. Always go through
+  # build_wingbox.build_program(params, ...).
+  # ===================================================================
+
+  # ===================================================================
+  # Skin, inward shell of BWB OML
+  # ===================================================================
+  skin:
+    type: shell
+    shape: bwb
+    thickness: $skin_t
+    mode: Inward
+
+  # ===================================================================
+  # Spanwise spars (2)
+  # ===================================================================
+
+  # Front spar, swept at S3 - front_dev, runs to outermost rib (~y=0.85)
+  front_spar_box:
+    type: box
+    size: [$front_spar_w, 3.0, 1.0]
+    center: [0, 0, 0]
+  front_spar_swept:
+    type: rotate
+    shape: front_spar_box
+    axis: z
+    angle: "$S3 - $front_spar_dev"
+  front_spar:
+    type: translate
+    shape: front_spar_swept
+    offset: [$front_spar_x, 0, 0]
+
+  # Rear spar, straight (no sweep), stops at first outer rib
+  # Extended 0.01 past y=0 so half+mirror overlap (no SDF=0 seam at y=0)
+  rear_spar:
+    type: box
+    size: [$rear_spar_w, "$rib_start_y + 0.01", 1.0]
+    center: [$rear_spar_x, "($rib_start_y - 0.01) / 2", 0]
+
+  # ===================================================================
+  # Center body ribs (3), solid, in main BWB body area
+  # Placed at y=0 (centerline), 1/3 and 2/3 of rib_start_y
+  # ===================================================================
+
+  # Centerline rib at y=0, half in y>=0, mirrored to complete
+  center_rib0:
+    type: box
+    size: [3.0, $center_rib_w, 1.0]
+    center: [-0.5, 0, 0]
+
+  center_rib1:
+    type: box
+    size: [3.0, $center_rib_w, 1.0]
+    center: [-0.5, "$rib_start_y / 3", 0]
+
+  center_rib2:
+    type: box
+    size: [3.0, $center_rib_w, 1.0]
+    center: [-0.5, "$rib_start_y * 2 / 3", 0]
+
+  # ===================================================================
+  # Chordwise ribs (5), evenly spaced from rib_start_y to rib_end_y
+  # ===================================================================
+  rib1:
+    type: box
+    size: [3.0, $rib_w, 1.0]
+    center: [-0.5, $rib_start_y, 0]
+
+  rib2:
+    type: box
+    size: [3.0, $rib_w, 1.0]
+    center: [-0.5, "$rib_start_y + ($rib_end_y - $rib_start_y) / 4", 0]
+
+  rib3:
+    type: box
+    size: [3.0, $rib_w, 1.0]
+    center: [-0.5, "$rib_start_y + ($rib_end_y - $rib_start_y) / 2", 0]
+
+  rib4:
+    type: box
+    size: [3.0, $rib_w, 1.0]
+    center: [-0.5, "$rib_start_y + ($rib_end_y - $rib_start_y) * 3 / 4", 0]
+
+  rib5:
+    type: box
+    size: [3.0, $rib_w, 1.0]
+    center: [-0.5, $rib_end_y, 0]
+
+  # ===================================================================
+  # Battery bay hole, subtracted from spars in center body
+  # Box spans both spars in x, from y=0 to y=bat_y
+  # ===================================================================
+  # Extended 0.01 past y=0 so half+mirror overlap (no SDF=0 seam at y=0)
+  battery_hole:
+    type: box
+    size: [$bat_x, "$bat_y + 0.01", $bat_z]
+    center: [-0.35, "($bat_y - 0.01) / 2", $bat_z_center]
+
+  # ===================================================================
+  # Assembly
+  # ===================================================================
+
+  # y >= -0.005 half-space (extends 0.005 past y=0 so half+mirror
+  # overlap eliminates the SDF=0 seam artifact. Small eps keeps
+  # thickening from the rotated front spar under 1 pixel.)
+  clip_pos_y:
+    type: box
+    size: [20, 20, 20]
+    center: [0, 9.995, 0]
+
+  # Union all structure (spars + ribs, for viz)
+  all_structure:
+    type: union
+    shapes: [front_spar, rear_spar, center_rib0, center_rib1, center_rib2, rib1, rib2, rib3, rib4, rib5]
+
+  # Cut battery bay
+  structure_with_bay:
+    type: difference
+    shapes: [all_structure, battery_hole]
+
+  # Clip to y >= 0
+  half_spars:
+    type: intersection
+    shapes: [structure_with_bay, clip_pos_y]
+
+  # Trim to BWB interior
+  spars_half:
+    type: intersection
+    shapes: [half_spars, bwb]
+
+  # Mirror onto y < 0
+  spars_mirror:
+    type: mirror
+    shape: spars_half
+    plane: xz
+
+  # Full-span spars (with ribs, for viz)
+  spars:
+    type: union
+    shapes: [spars_half, spars_mirror]
+
+  # ===================================================================
+  # Structural cross-section: skin + spar webs only (no ribs)
+  # Used for structural_properties() data generation
+  # ===================================================================
+
+  # Spar webs only (no ribs)
+  spar_webs:
+    type: union
+    shapes: [front_spar, rear_spar]
+
+  spar_webs_with_bay:
+    type: difference
+    shapes: [spar_webs, battery_hole]
+
+  spar_webs_half:
+    type: intersection
+    shapes: [spar_webs_with_bay, clip_pos_y]
+
+  spar_webs_trimmed:
+    type: intersection
+    shapes: [spar_webs_half, bwb]
+
+  spar_webs_mirror:
+    type: mirror
+    shape: spar_webs_trimmed
+    plane: xz
+
+  spar_webs_full:
+    type: union
+    shapes: [spar_webs_trimmed, spar_webs_mirror]
+
+  # Skin + spar webs = structural cross-section
+  structural:
+    type: union
+    shapes: [skin, spar_webs_full]
+
+  # ===================================================================
+  # Ribs only (no spars, no skin), for rib-mass volume estimate.
+  # Ribs partition the battery bay so the battery hole is NOT subtracted.
+  # ===================================================================
+  ribs_union:
+    type: union
+    shapes: [center_rib0, center_rib1, center_rib2, rib1, rib2, rib3, rib4, rib5]
+
+  ribs_half:
+    type: intersection
+    shapes: [ribs_union, clip_pos_y]
+
+  ribs_trimmed:
+    type: intersection
+    shapes: [ribs_half, bwb]
+
+  ribs_mirror:
+    type: mirror
+    shape: ribs_trimmed
+    plane: xz
+
+  ribs:
+    type: union
+    shapes: [ribs_trimmed, ribs_mirror]
+
+  # ===================================================================
+  # Ribs WITH battery cutout (viz only, data gen keeps `ribs` as-is
+  # so rib volumes include the ribs that partition the battery bay).
+  # ===================================================================
+  ribs_with_bay:
+    type: difference
+    shapes: [ribs_union, battery_hole]
+
+  ribs_with_bay_half:
+    type: intersection
+    shapes: [ribs_with_bay, clip_pos_y]
+
+  ribs_with_bay_trimmed:
+    type: intersection
+    shapes: [ribs_with_bay_half, bwb]
+
+  ribs_with_bay_mirror:
+    type: mirror
+    shape: ribs_with_bay_trimmed
+    plane: xz
+
+  ribs_viz:
+    type: union
+    shapes: [ribs_with_bay_trimmed, ribs_with_bay_mirror]
+
+output:
+  bwb: bwb
+  skin: skin
+  spars: spars
+  spar_webs_full: spar_webs_full
+  structural: structural
+  ribs: ribs
+  ribs_viz: ribs_viz

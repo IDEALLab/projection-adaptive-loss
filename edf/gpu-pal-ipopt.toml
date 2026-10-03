@@ -1,0 +1,24 @@
+# Replace every <SCRATCH> with your scratch directory, then copy this file into ~/.edf/.
+
+image = "<SCRATCH>/containers/gpu-pal-ipopt-2511.sqsh"
+
+mounts = [
+  "<SCRATCH>/pal:/workspace/pal",
+  "<SCRATCH>/pal-runs:/workspace/pal-runs",
+  "<SCRATCH>/pal-data:/workspace/pal-data",
+]
+
+workdir    = "/workspace/pal"
+writable   = true
+entrypoint = false
+
+[env]
+PAL_DATA_DIR = "/workspace/pal-data"
+HF_HOME = "/workspace/pal-data/hf"
+WANDB_DIR = "/workspace/pal-runs/wandb"
+XDG_CACHE_HOME = "/workspace/pal-data/cache"
+TORCH_HOME = "/workspace/pal-data/torch"
+PYTORCH_KERNEL_CACHE_PATH = "/workspace/pal-data/cache/torch/kernels"
+TORCHINDUCTOR_CACHE_DIR = "/workspace/pal-data/cache/torchinductor"
+TRITON_CACHE_DIR = "/workspace/pal-data/cache/triton"
+NCCL_DEBUG = "INFO"

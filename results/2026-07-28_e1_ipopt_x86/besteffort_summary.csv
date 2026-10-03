@@ -1,0 +1,21 @@
+shard,query,restart,complete,status,status_msg,n_iter,wall_s,obj_final,max_viol_final,best_max_viol,best_obj,feasible_at_1e-4,feasible_at_paper_tol
+shard000,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,120,2033.6488564070314,-0.03617646172642708,0.0,0.0,-0.007133932784199715,True,True
+shard000,0,1,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,82,1877.996255443897,-0.03767407685518265,0.0,0.0,-0.008433748036623001,True,True
+shard000,0,2,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,188,4130.805126963183,-0.03715445473790169,0.0,0.0,-0.006465286947786808,True,True
+shard000,0,3,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,175,2779.4344630609266,-0.035650260746479034,0.0,0.0,-0.0077996570616960526,True,True
+shard000,0,4,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,12570.601368081989,-0.018381429836153984,0.0,0.0,-0.008434508927166462,True,True
+shard001,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,120,2513.9205059780506,-0.035533737391233444,0.0,0.0,-0.005519666243344545,True,True
+shard001,0,1,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,309,6222.499195117038,-0.03544876351952553,0.0,0.0,-0.0028707801830023527,True,True
+shard001,0,2,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,259,5509.78073064005,-0.037054743617773056,0.0,0.0,-0.004616626538336277,True,True
+shard001,0,3,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,154,4826.989525176934,-0.018522141501307487,0.0,0.0,-0.008227559737861156,True,True
+shard001,0,4,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,172,2324.3180820900016,-0.03606334701180458,0.0,0.0,-0.005094755906611681,True,True
+shard002,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,97,1659.9228690420277,-0.03673454746603966,0.0,0.0,-0.010406608693301678,True,True
+shard002,0,1,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,277,7979.394975738833,-0.03639932721853256,0.0,0.0,-0.030802669003605843,True,True
+shard002,0,2,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,351,11987.178612010088,-0.03651205077767372,0.0,0.0,-0.0034323413856327534,True,True
+shard002,0,3,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,144,2065.6229316950776,-0.036096300929784775,0.0,0.0,-0.011666330508887768,True,True
+shard002,0,4,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,173,2545.559377386002,-0.03484067693352699,0.0,0.0,-0.008790155872702599,True,True
+shard003,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,194,5337.177533404902,-0.037719495594501495,0.0,0.0,-0.005536203272640705,True,True
+shard003,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,17760.04341027001,-0.035681597888469696,0.0,0.0,-0.012043306604027748,True,True
+shard003,0,2,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,310,7740.071796314092,-0.018562287092208862,0.0,0.0,-0.0020705165807157755,True,True
+shard003,0,3,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,316,6199.552545750979,-0.036332301795482635,0.0,0.0,-0.008783310651779175,True,True
+shard003,0,4,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,213,5027.171569482889,-0.035766176879405975,0.0,0.0,-0.00662121269851923,True,True

@@ -1,0 +1,84 @@
+arm,bench,seed,state,elapsed,oom,last_train_step,proj_active_last,proj_iters_last,objective_last,max_violation_last,gpu_peak_alloc_mb_last,reason,config,status,epochs_trained,train_wall_s,predict_wall_s,feasibility_tol1e3,viol_max,max_eq,mean_eq,max_ineq,mean_ineq,obj,final_train_max_violation,proj_active_max,inf_iters_median
+warmup,e1/bwb,0,FAILED,00:17:30,yes,101,0.531,17,-0.03889,0.07258,73011,CUDA OOM in compute_dc_dy on first projected epoch (IFT path),,,,,,,,,,,,,,,
+warmup,e1/bwb,1,COMPLETED,02:29:11,no,200,0.750,3,-0.00270,0.01800,15643,completed 200 epochs. not evaluated (--no-final-eval). last-logged objective -0.0027,,,,,,,,,,,,,,,
+warmup,e1/bwb,2,FAILED,00:18:15,yes,101,0.656,10,-0.04021,0.04931,44020,CUDA OOM in compute_dc_dy on first projected epoch (IFT path),,,,,,,,,,,,,,,
+warmup,e1/bwb,3,FAILED,00:21:24,yes,103,0.531,14,-0.03768,0.09465,59639,CUDA OOM in compute_dc_dy on first projected epoch (IFT path),,,,,,,,,,,,,,,
+warmup,e1/bwb,4,FAILED,02:00:38,yes,172,0.719,9,-0.03806,0.04105,40632,CUDA OOM in compute_dc_dy. survived to step 172 before crash,,,,,,,,,,,,,,,
+warmup,e1/bwb,5,FAILED,00:16:29,yes,100,0.906,5,-0.03947,0.02675,23767,CUDA OOM in compute_dc_dy on first projected epoch (IFT path),,,,,,,,,,,,,,,
+warmup,e1/bwb,6,FAILED,00:22:36,yes,105,1.000,2,-0.03775,0.00009,11996,CUDA OOM in compute_dc_dy on a projected epoch (IFT path),,,,,,,,,,,,,,,
+warmup,e1/bwb,7,FAILED,00:16:02,yes,99,0.000,0,-0.03284,0.09124,1486,CUDA OOM at projection onset (step 100). last logged line is final soft epoch 99,,,,,,,,,,,,,,,
+warmup,e1/bwb,8,FAILED,00:19:23,yes,102,0.781,11,-0.03902,0.03462,48212,CUDA OOM in compute_dc_dy on first projected epoch (IFT path),,,,,,,,,,,,,,,
+warmup,e1/bwb,9,FAILED,00:17:43,yes,102,0.813,7,-0.03830,0.01812,31233,CUDA OOM in compute_dc_dy on first projected epoch (IFT path),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,0,FAILED,00:40:44,yes,249,0.000,0,-26.189,2137.37,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,1,FAILED,00:40:09,yes,249,0.000,0,-27.400,767.97,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,2,FAILED,00:40:04,yes,249,0.000,0,-26.389,109.60,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,3,FAILED,00:41:00,yes,249,0.000,0,-26.558,180.50,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,4,FAILED,00:41:09,yes,249,0.000,0,-27.159,0.854,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,5,FAILED,00:40:19,yes,249,0.000,0,-26.776,600.91,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,6,FAILED,00:41:02,yes,249,0.000,0,-26.962,565.19,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,7,FAILED,00:39:56,yes,249,0.000,0,-22.532,0.367,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,8,FAILED,00:40:17,yes,249,0.000,0,-25.498,2310.81,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+warmup,e2/urban_wind,9,FAILED,00:40:58,yes,249,0.000,0,-27.005,0.477,15256,CUDA OOM in compute_dc_dy at first projected epoch (step 250),,,,,,,,,,,,,,,
+nowarmup,e1/bwb,0,FAILED,00:00:43,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,1,FAILED,00:00:45,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,2,FAILED,00:00:44,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,3,FAILED,00:00:44,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,4,FAILED,00:00:45,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,5,FAILED,00:00:44,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,6,FAILED,00:00:48,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,7,FAILED,00:00:47,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,8,FAILED,00:00:45,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e1/bwb,9,FAILED,00:00:45,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,0,FAILED,00:01:33,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,1,FAILED,00:01:32,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,2,FAILED,00:01:33,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,3,FAILED,00:01:36,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,4,FAILED,00:01:33,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,5,FAILED,00:01:39,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,6,FAILED,00:01:38,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,7,FAILED,00:01:36,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,8,FAILED,00:01:34,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+nowarmup,e2/urban_wind,9,FAILED,00:01:42,yes,,,,,,,CUDA OOM in compute_dc_dy at epoch 0 (projection from the start). no metrics line written,,,,,,,,,,,,,,,
+,,0,,,,,,,,,,,fsnet,ok,2000,12490.058857738972,1.4218915118835866,0.000,1.408e+07,9.072e+02,2.647e+01,1.408e+07,6.704e+04,8.889e+03,,,8.0
+,,1,,,,,,,,,,,fsnet,ok,2000,11023.65445898904,4.8528925069840625,0.000,1.389e+00,8.752e-01,2.755e-01,1.222e+00,2.265e-02,8.528e+03,,,50.0
+,,2,,,,,,,,,,,fsnet,ok,2000,11835.625675983261,2.1089575779624283,0.000,1.377e+16,1.690e+07,5.482e+05,1.377e+16,4.067e+13,1.480e+04,,,5.0
+,,3,,,,,,,,,,,fsnet,ok,2000,15236.842402732,2.3117820410989225,0.000,3.255e+10,2.950e+04,1.571e+03,3.255e+10,1.810e+08,5.423e+03,,,8.0
+,,4,,,,,,,,,,,fsnet,ok,2000,12490.359152071644,9.32358900969848,0.000,1.293e+01,1.184e+01,1.040e+00,4.721e+00,8.025e-02,2.044e+04,,,50.0
+,,5,,,,,,,,,,,fsnet,ok,2000,11549.991552209016,3.776266276021488,0.000,8.281e-01,6.634e-01,2.256e-01,6.798e-01,2.696e-02,1.483e+04,,,50.0
+,,6,,,,,,,,,,,fsnet,ok,2000,12923.436064773938,3.3013637819094583,0.000,1.010e+00,7.710e-01,2.563e-01,1.006e+00,5.028e-02,1.508e+04,,,50.0
+,,7,,,,,,,,,,,fsnet,ok,2000,11769.892424308695,3.4250528402626514,0.000,3.519e-01,3.519e-01,1.085e-01,3.230e-02,1.218e-04,9.718e+03,,,50.0
+,,8,,,,,,,,,,,fsnet,ok,2000,11246.848755615763,3.234947393182665,0.000,3.932e-01,3.932e-01,1.239e-01,6.354e-02,3.779e-04,9.767e+03,,,50.0
+,,9,,,,,,,,,,,fsnet,ok,2000,14710.371669257991,5.052776897791773,0.000,6.579e-01,5.629e-01,1.635e-01,3.091e-01,9.587e-03,7.628e+03,,,50.0
+,,0,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,35382.56056131981,46.081517848186195,0.047,nan,nan,nan,nan,nan,nan,0.4876912832260132,0.0,5.0
+,,1,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,33288.90904981457,46.487275377847254,0.031,nan,nan,nan,nan,nan,nan,0.5183719396591187,0.0,5.0
+,,2,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,28839.416853074916,39.232796548865736,0.031,nan,nan,nan,nan,nan,nan,0.4053820073604584,0.0,5.0
+,,3,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,28945.8935842691,31.07056710962206,0.000,nan,nan,nan,nan,nan,7.340e+12,0.5507960319519043,0.0,4.0
+,,4,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,28836.26342041325,41.7346935197711,0.000,nan,nan,nan,nan,nan,nan,0.4967345893383026,0.0,5.0
+,,5,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,28944.84416856896,41.43206375837326,0.016,nan,nan,nan,nan,nan,nan,0.5642777681350708,0.0,5.0
+,,6,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,34329.09144802019,49.11865408113226,0.016,nan,nan,nan,nan,nan,nan,0.5243487358093262,0.0,5.0
+,,7,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,37014.10131406458,41.21434199810028,0.078,nan,nan,nan,nan,nan,1.795e+13,0.45967623591423035,0.0,4.0
+,,8,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,32640.701428536093,44.36583473207429,0.016,nan,nan,nan,nan,nan,nan,0.5052384734153748,0.0,5.0
+,,9,,,,,,,,,,predict: projected outputs non-finite on most queries,enforce_v4 (gate on),ok,2000,33193.093065967085,44.517830396071076,0.016,nan,nan,nan,nan,nan,nan,0.45204123854637146,0.0,5.0
+,,0,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,1,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,2,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,3,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,4,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,5,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,6,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,7,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,8,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,9,,,,,,,,,,non-finite loss at epoch 0 (unconditional projection from init),enforce_v4 (gate off),failed,0,,,0.000,,,,,,,,,
+,,0,,,,,,,,,,non-finite loss at epoch 16,snarenet,failed,16,,,0.000,,,,,,,nan,,
+,,1,,,,,,,,,,non-finite loss at epoch 52,snarenet,failed,52,,,0.000,,,,,,,nan,,
+,,2,,,,,,,,,,non-finite loss at epoch 65,snarenet,failed,65,,,0.000,,,,,,,nan,,
+,,3,,,,,,,,,,non-finite loss at epoch 10,snarenet,failed,10,,,0.000,,,,,,,nan,,
+,,4,,,,,,,,,,non-finite loss at epoch 6,snarenet,failed,6,,,0.000,,,,,,,nan,,
+,,5,,,,,,,,,,non-finite loss at epoch 12,snarenet,failed,12,,,0.000,,,,,,,nan,,
+,,6,,,,,,,,,,non-finite loss at epoch 106,snarenet,failed,106,,,0.000,,,,,,,nan,,
+,,7,,,,,,,,,,non-finite loss at epoch 38,snarenet,failed,38,,,0.000,,,,,,,nan,,
+,,8,,,,,,,,,,non-finite loss at epoch 158,snarenet,failed,158,,,0.000,,,,,,,nan,,
+,,9,,,,,,,,,,non-finite loss at epoch 252,snarenet,failed,252,,,0.000,,,,,,,nan,,
+,,0,,,,,,,,,,"non-finite loss at epoch 1; LM damping probe lambd=1, seed 0 only","snarenet (lambd=1, probe)",failed,1,,,0.000,,,,,,,nan,,
+,,0,,,,,,,,,,"non-finite loss at epoch 245; LM damping probe lambd=10, seed 0 only","snarenet (lambd=10, probe)",failed,245,,,0.000,,,,,,,nan,,
+,,0,,,,,,,,,,"non-finite loss at epoch 244; LM damping probe lambd=100, seed 0 only","snarenet (lambd=100, probe)",failed,244,,,0.000,,,,,,,nan,,

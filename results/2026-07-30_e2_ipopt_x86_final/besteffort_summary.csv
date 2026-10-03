@@ -1,0 +1,17 @@
+shard,query,restart,complete,status,status_msg,n_iter,wall_s,obj_final,max_viol_final,best_max_viol,best_obj,feasible_at_1e-4,feasible_at_paper_tol
+shard000,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,24142.49744773889,-14.022258648186959,92.71892433433122,9.198065946184495e-30,-3.033632005100233,False,False
+shard000,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,24045.64803408296,-20.632893368314328,29.42151333053784,3.09203304173938e-14,-12.661352999620737,False,False
+shard001,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,15587.208323815023,-27.514505571110277,0.025801945056699083,1.996987188106689e-14,-8.669826389246973,False,False
+shard001,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,12834.35592241399,-15.256242326793938,1.0479984985738682e-15,4.617840985379432e-20,-7.303799615786892,True,True
+shard002,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,13252.990618603071,-27.561098381218276,0.39795015772763803,9.635414200983502e-12,-26.184303290408792,False,False
+shard002,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,14352.274066078011,-27.56278208613351,0.004472384436871835,1.2749095186508345e-10,-11.660179314968122,False,False
+shard003,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,14090.072968923952,-27.542503238983713,0.04110876948985834,1.9895462595647405e-14,-23.99741747499794,False,False
+shard003,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,16713.220338051906,-27.516146725915178,0.038100865358299534,4.8980826377494656e-14,-23.028316823668554,False,False
+shard004,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,22444.431449241936,-22.699648341565066,1.403523717003858e-10,8.315122507378832e-16,-12.659565611665792,True,True
+shard004,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,18695.571913672145,-18.3521233167477,9.800945952444676e-09,2.4060215298538728e-12,-9.903188654908165,True,True
+shard005,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,13782.750790302991,-8.13879660882761,1.411499074162429e-19,5.696325530281177e-23,-7.055034401274094,True,True
+shard005,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,11895.68569997698,-6.314467087255727,7.566554752568732e-31,1.1215271814120495e-33,-5.500741490018044,True,True
+shard006,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,17225.281808299944,-24.69276453473186,0.009658042983299987,3.089969309181426e-27,-11.503249087318979,False,False
+shard006,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,13282.266095269006,-26.89206138050498,0.0005466785864792065,2.365538590246631e-19,-12.632659981827288,False,False
+shard007,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,24297.874792321818,-17.03032789394476,9.34146184164824e-09,1.029146220154129e-14,-7.6980433459426285,True,True
+shard007,0,1,True,-1,Maximum number of iterations exceeded (can be specified by an option).,500,29778.76598889497,-14.753561434701412,1.0565224966111435,1.910242069991662e-38,-5.920648031888461,False,False

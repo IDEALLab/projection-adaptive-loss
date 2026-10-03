@@ -1,0 +1,30 @@
+{
+  "config": {
+    "ada_np_auto_activation": "True",
+    "epoch_start_hard_constrained": "1000",
+    "eps_chol": "0.0001",
+    "lr": "0.00013047065539371693",
+    "max_it": "38",
+    "training_tolerance": "0.01",
+    "weight_loss_displacement": "0.3575798987105774",
+    "weighting_option": "5"
+  },
+  "method": "enforce_v4",
+  "scalar": 0.8333166463775843,
+  "tuple": [
+    0.8333333333333334,
+    0.16670289082327103,
+    0.16666666666666666
+  ],
+  "widened_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107
+  ],
+  "winner_trial_index": 20
+}

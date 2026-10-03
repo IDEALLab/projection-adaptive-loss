@@ -1,0 +1,5 @@
+shard,query,n_restarts,winner_restart,winner_obj,winner_max_viol,feasible_at_1e-4,feasible_at_paper_tol,best_max_viol_any_restart
+shard000,0,1,0,-0.03617646172642708,0.0,True,True,0.0
+shard001,0,1,0,-0.035533737391233444,0.0,True,True,0.0
+shard002,0,1,0,-0.03673454746603966,0.0,True,True,0.0
+shard003,0,1,0,-0.037719495594501495,0.0,True,True,0.0

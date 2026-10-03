@@ -1,0 +1,7 @@
+methods: [ipopt]
+benchmark: e2/urban_wind
+seeds: [0, 1, 2]
+
+device: cpu
+multi_start: 20
+eval_points: pal/configs/eval_points/e2.json

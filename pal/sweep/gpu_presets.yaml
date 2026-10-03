@@ -1,0 +1,42 @@
+# GPU VRAM tier registry for `pal sweep`.
+#
+# Tiers:
+#   S  small_gpu, <=11 GB
+#   M  medium_gpu, 12-24 GB
+#   L  large_gpu, >=40 GB
+#
+# Rule: final_tier = max(bench_tier, method_tier), with `overrides` taking
+# precedence when a specific (bench, method) pair needs a manual bump.
+#
+# Ordering S < M < L. "Unknown" ids fall back to `defaults.tier`.
+
+defaults:
+  tier: M  # unknown bench or method
+
+benchmarks:
+  # synthetic, toy constraints, 512x4 MLP, batch=256
+  rosenbrock_eq: S
+  two_basins: S
+  equality_dominated: S
+
+  # engineering
+  e1/bwb: L             # BWB SDF surrogate; peaks ~78.5 GB on A100-80GB at batch=32
+  e2/urban_wind: L      # 12.7 GB weights + 1.5-3 GB/sample
+  e3/acopf_ieee30: M    # grid + Newton completion, batch=64
+  e3/acopf_ieee57: M
+  e3/acopf_ieee118: M
+  e4/chip_layout: S     # lightweight, batch=256
+
+methods:
+  alm: S           # single Adam step per epoch
+  alm_bolton: S    # ALM training (== alm) + LM projector at inference only
+  pal: S           # ALM + duals, negligible extra cost
+  enforce_orig: S  # QP / projection
+  enforce_v4: M    # unrolled Newton (max_it=100) + FB dual columns
+  dc3: M           # differentiable Newton correction (5 steps)
+  snarenet: M      # unrolled Newton
+  fsnet: M         # L-BFGS with max_diff_iter=30, memory_size=30
+
+# Manual bumps for (bench, method) pairs that don't fit the max rule.
+# Format: list of {bench, method, tier}. Wildcards not supported.
+overrides: []

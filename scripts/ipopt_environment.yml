@@ -1,0 +1,6 @@
+name: ipopt-cpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - cyipopt=1.7.0

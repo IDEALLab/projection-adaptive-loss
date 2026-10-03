@@ -1,0 +1,46 @@
+{
+  "main": {
+    "n_queries": 64,
+    "n_solves": 320,
+    "feasible_1e4": 63,
+    "feasible_paper": 64,
+    "obj_mean": -0.037037,
+    "obj_std": 0.000876,
+    "obj_best": -0.040882,
+    "wall_mean_s": 4646.0,
+    "total_wall_h": 412.97,
+    "status_hist": {
+      "2": 309,
+      "-1": 11
+    }
+  },
+  "control": {
+    "n_queries": 4,
+    "n_solves": 4,
+    "feasible_1e4": 4,
+    "feasible_paper": 4,
+    "obj_mean": -0.036541,
+    "obj_std": 0.000926,
+    "obj_best": -0.037719,
+    "wall_mean_s": 2260.7,
+    "total_wall_h": 2.51,
+    "status_hist": {
+      "2": 4
+    }
+  },
+  "besteffort": {
+    "n_queries": 4,
+    "n_solves": 20,
+    "feasible_1e4": 4,
+    "feasible_paper": 4,
+    "obj_mean": -0.037296,
+    "obj_std": 0.000482,
+    "obj_best": -0.037719,
+    "wall_mean_s": 5654.6,
+    "total_wall_h": 31.41,
+    "status_hist": {
+      "2": 18,
+      "-1": 2
+    }
+  }
+}

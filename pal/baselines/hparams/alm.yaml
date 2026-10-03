@@ -1,0 +1,18 @@
+# ALM hparams (Basir & Senocak, arXiv:2306.04904v2). Paper-only port, no code release.
+
+# Algorithm 3 (p.5)
+gamma: 1.0e-2                # Algorithm 3 line 1
+alpha: 0.99                  # Algorithm 3 line 1
+eps: 1.0e-8                  # Algorithm 3 line 1
+mu_init: 1.0                 # Algorithm 3 line 4
+lambda_init: 1.0             # Algorithm 3 line 3
+
+# Training schedule: Adam single step per epoch instead of the paper's L-BFGS.
+epochs: 2000
+batch_size: 32
+lr: 1.0e-4
+grad_clip: 20.0              # paper silent (L-BFGS line search caps the step)
+
+# Backbone (CoordinationMLP); paper uses 3x30 for the heat problem.
+hidden: 512
+n_layers: 4

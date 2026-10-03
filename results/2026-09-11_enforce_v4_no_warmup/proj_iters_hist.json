@@ -1,0 +1,127 @@
+{
+ "definition": "per training step with proj_active==1: histogram of proj_iters (Newton iterations of the training-time projection); pooled over the 10 report seeds; first_active_step_per_seed = first step the AdaNP gate accepted projection",
+ "source": "metrics.jsonl of the 60 report cells",
+ "benches": {
+  "s1": {
+   "n_runs": 10,
+   "n_steps": 20000,
+   "n_active": 18804,
+   "active_share": 0.9402,
+   "first_active_step_per_seed": [
+    19,
+    13,
+    14,
+    12,
+    13,
+    14,
+    11,
+    17,
+    29,
+    15
+   ],
+   "hist": {
+    "1": 17100,
+    "2": 1672,
+    "3": 32
+   }
+  },
+  "s2": {
+   "n_runs": 10,
+   "n_steps": 20000,
+   "n_active": 19950,
+   "active_share": 0.9975,
+   "first_active_step_per_seed": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hist": {
+    "1": 19870,
+    "2": 73,
+    "3": 7
+   }
+  },
+  "s3": {
+   "n_runs": 10,
+   "n_steps": 20000,
+   "n_active": 3704,
+   "active_share": 0.1852,
+   "first_active_step_per_seed": [
+    1,
+    5,
+    4,
+    1,
+    5,
+    1,
+    1,
+    6,
+    1,
+    2
+   ],
+   "hist": {
+    "1": 3704
+   }
+  },
+  "s4": {
+   "n_runs": 10,
+   "n_steps": 20000,
+   "n_active": 19460,
+   "active_share": 0.973,
+   "first_active_step_per_seed": [
+    54,
+    58,
+    55,
+    56,
+    60,
+    53,
+    54,
+    55,
+    53,
+    49
+   ],
+   "hist": {
+    "1": 17152,
+    "2": 2083,
+    "3": 225
+   }
+  },
+  "s5": {
+   "n_runs": 0,
+   "n_steps": 0,
+   "n_active": 0,
+   "active_share": 0.0,
+   "first_active_step_per_seed": [],
+   "hist": {}
+  },
+  "s6": {
+   "n_runs": 10,
+   "n_steps": 20000,
+   "n_active": 20000,
+   "active_share": 1.0,
+   "first_active_step_per_seed": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hist": {
+    "1": 12640,
+    "2": 7102,
+    "3": 258
+   }
+  }
+ }
+}

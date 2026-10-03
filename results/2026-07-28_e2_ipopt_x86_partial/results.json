@@ -1,0 +1,18 @@
+{
+  "arm": "main",
+  "partial": true,
+  "n_restarts": 59,
+  "n_queries_touched": 34,
+  "restart_feasible_final": 18,
+  "restart_feasible_best_iterate": 59,
+  "best_max_viol_median": 1.57988718187758e-19,
+  "obj_final_mean": -18.743,
+  "obj_best_feas_mean": -11.2,
+  "max_viol_final_median": 0.05411071702837944,
+  "status_hist": {
+    "-1": 56,
+    "-3": 3
+  },
+  "wall_mean_h": 5.58,
+  "query_winner_feasible_final": 16
+}

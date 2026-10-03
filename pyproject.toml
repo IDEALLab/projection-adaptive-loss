@@ -1,0 +1,118 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pal"
+version = "0.0.1"
+description = "Only Project Once: Projection-Adaptive Loss for Exact Constraint Satisfaction"
+authors = [
+    { name = "Tim Aebersold", email = "taebersold@ethz.ch" },
+    { name = "Soheyl Massoudi" },
+    { name = "Mark Fuge" },
+]
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    # --- core ---
+    "torch>=2.2",
+    "numpy>=1.26",
+    "polars>=1.0",
+    "matplotlib>=3.8",
+    "pyyaml>=6.0",
+    "wandb>=0.17",
+    "huggingface_hub>=0.24",
+    "tqdm>=4.65",
+    "joblib>=1.3",
+    "scikit-image>=0.21",
+    "pyvista>=0.42",
+    "torch-geometric>=2.4",
+    "pydot>=2.0",
+    "pytest>=8.0",
+
+    # --- E1 BWB (analytical wing + BWB SDF precompute) ---
+    "scipy>=1.11",  # optimize.minimize (airfoil CP fit), stats.qmc.LatinHypercube (data gen)
+    "vtk>=9.2",  # SDF mesh I/O in blendednet_geometry/precompute_sdf.py (pyvista pulls it transitively; pin explicitly for Docker)
+
+    # --- E2 urban_wind (WinDiNet: LTX-Video surrogate) ---
+    "torchvision",
+    "diffusers>=0.32.1",
+    "transformers",
+    "accelerate",
+    "safetensors>=0.5.0",
+    "pydantic>=2.0",  # windinet.config uses BaseModel / field_validator
+    "pillow>=10.0",  # windinet.inference.pipeline imports PIL.Image
+    "scikit-learn>=1.3",  # airfoil_model training utils
+
+    # --- E3 ACOPF ---
+    "ml4opf @ git+https://github.com/AI4OPT/ML4OPF.git@8f8e6125352203d112bba4c89092347fd7629c56",
+    "pandapower",
+
+    # --- E4 --- (no extra deps)
+
+    # --- pal_sqp repair (elastic QP) ---
+    # Solver chain OSQP -> Clarabel via qpsolvers. osqp >= 1.0 for the `polishing` setting name.
+    "qpsolvers>=4.3",
+    "osqp>=1.0",
+    "clarabel",
+
+    # --- results tables ---
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+# Bayesian-optimisation tuning (scripts/bo/). Exact pins in scripts/bo/requirements-bo.txt.
+bo = ["ax-platform==1.3.1"]
+
+[project.scripts]
+pal = "pal.runner.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/IDEALLab/projection-adaptive-loss"
+
+[tool.setuptools.packages.find]
+include = ["pal*", "geometry*"]
+exclude = ["tests*", "scripts*"]
+
+[tool.setuptools.package-data]
+"pal.benchmarks.engineering.e3_acopf.data" = ["*.pt"]
+
+[tool.pytest.ini_options]
+markers = [
+    "hf: tests that hit the HuggingFace Hub (require HF_TOKEN; opt in with -m hf)",
+    "slow: slow integration tests (real training subprocesses; deselect with -m 'not slow')",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+force-exclude = true
+extend-exclude = [
+    "notebooks",
+    "wandb",
+    "results/frozen",
+    "pal/baselines/dc3/upstream",
+    "pal/baselines/snarenet/upstream",
+    "pal/baselines/fsnet/upstream",
+    "pal/baselines/enforce_v4/upstream",
+    "geometry",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes (unused imports, undefined names)
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "W",   # pycodestyle warnings
+]
+ignore = [
+    "E501",  # line length handled by formatter
+    "B008",  # function call in default arg (common pattern in research code)
+    "UP007", # `Optional[X]` -> `X | None`, leave alone in dataclasses
+]
+
+[tool.ruff.format]
+quote-style = "double"
+docstring-code-format = false

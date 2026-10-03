@@ -1,0 +1,10 @@
+methods: [pal_loggap, alm]
+benchmark: e2/urban_wind
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+epochs: 2000
+batch_size: 16
+lr: 1.0e-3
+device: cuda
+eval_points: pal/configs/eval_points/e2.json
+measure_repair_mem: true

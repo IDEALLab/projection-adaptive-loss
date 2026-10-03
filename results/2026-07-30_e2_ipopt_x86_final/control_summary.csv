@@ -1,0 +1,9 @@
+shard,query,restart,complete,status,status_msg,n_iter,wall_s,obj_final,max_viol_final,best_max_viol,best_obj,feasible_at_1e-4,feasible_at_paper_tol
+shard000,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,2000,93125.5132125949,-27.54886245727539,0.04580230638384819,2.729312319480692e-22,-5.65022611618042,False,False
+shard000,0,1,False,,,499,,,,,,,
+shard001,0,0,True,-3,An unrecoverable error occurred while Ipopt tried to compute the search direction.,1274,60936.23324992496,-27.50283432006836,4.884863624710079e-10,2.771452772137861e-13,-22.60144805908203,True,True
+shard001,0,1,False,,,1699,,,,,,,
+shard002,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,2000,82987.12325381488,-27.55156135559082,0.006739807315170765,0.0,-18.4302978515625,False,False
+shard002,0,1,False,,,1399,,,,,,,
+shard003,0,0,True,-1,Maximum number of iterations exceeded (can be specified by an option).,2000,94748.26626496203,-27.512035369873047,0.171742245554924,8.83819220058182e-20,-11.159952163696289,False,False
+shard003,0,1,False,,,599,,,,,,,

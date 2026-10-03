@@ -1,0 +1,60 @@
+[campaign]
+name = "paper-gpu"
+description = "Paper-facing PAL benchmark campaign for the GH200 cluster."
+runs_root_base = "/workspace/pal-runs/paper/main"
+default_methods = ["pal", "alm", "enforce_orig"]
+default_seeds = [0, 1, 2]
+default_epochs = 200
+default_submit_unit = "run"
+default_enable_wandb = false
+default_wandb_project = "pal-paper"
+default_wandb_entity = ""
+render_after_group = true
+
+[[groups]]
+name = "synthetic_cpu"
+wrapper = "scripts/run_benchmark_gpu_cpu.slurm"
+benchmarks = [
+  "rosenbrock_eq",
+  "two_basins",
+  "equality_dominated",
+]
+device = "cpu"
+cpus_per_task = 16
+mem = "64G"
+time = "00:45:00"
+run_group = "synthetic_cpu"
+notes = "Fast regression and main-table synthetic rows."
+
+[[groups]]
+name = "chip_layout_cpu"
+wrapper = "scripts/run_benchmark_gpu_cpu.slurm"
+benchmarks = ["e4/chip_layout"]
+device = "cpu"
+cpus_per_task = 32
+mem = "96G"
+time = "01:30:00"
+run_group = "e4_chip_layout"
+
+[[groups]]
+name = "acopf_cpu"
+wrapper = "scripts/run_benchmark_gpu_cpu.slurm"
+benchmarks = ["e3/acopf_ieee30", "e3/acopf_ieee57", "e3/acopf_ieee118"]
+device = "cpu"
+cpus_per_task = 64
+mem = "128G"
+time = "03:00:00"
+run_group = "e3_acopf_cpu"
+notes = "Default paper path uses CPU here; keep GPU demo runs separate."
+
+[[groups]]
+name = "urban_wind_manual"
+submission = "manual"
+run_group = "e2_paper"
+notes = "Submit slurm/engineering/e2.sbatch for the validated 4-GPU path, then render that run root."
+
+[[groups]]
+name = "bwb_manual"
+submission = "manual"
+run_group = "e1_bwb"
+notes = "Submit slurm/engineering/e1_gpu.sbatch (4-GPU DDP), then render that run root."

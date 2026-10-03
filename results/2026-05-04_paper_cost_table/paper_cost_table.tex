@@ -1,0 +1,54 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\caption{\TODO{methods sweep caption.} $\dag$ converged on all but one seed; mean over successful seeds. ``---'' indicates $\geq 2$ seed failures; the \textit{Mean} row shows ``---'' if any benchmark in the column is missing. Cells with mean $\geq 100$ or std $\geq 10$ are rounded to integers.}
+\label{tab:methods-sweep-synthetic}
+\begin{tabular}{@{}ll *{6}{M}@{}}
+\toprule
+ & \textbf{Bench.}
+  & \makecell{\textbf{ALM+}\\\textbf{Bolt-On}} & \textbf{ENFORCE} & \textbf{DC3} & \textbf{FSNet} & \textbf{SnareNet} & \makecell{\textbf{PAL}\\{}[Ours]} \\
+\midrule
+\multirow{7}{*}{\rotatebox[origin=c]{90}{Feas.\ \%}}
+  & s1 & \cc{100} $100\pm0$ & — & — & \cc{100} $100\pm0$ & \cc{100} $100\pm0$ & \cc{100} $100\pm0$ \\
+  & s2 & \cc{100} $100\pm0$ & \cc{0} $1\pm1$ & \cc{32} $80\pm33$ & \cc{100} $100\pm0$ & \cc{100} $100\pm0$ & \cc{100} $100\pm0$ \\
+  & s3 & \cc{100} $100\pm0$ & \cc{0} $5\pm3$ & \cc{100} $100\pm0$ & \cc{100} $100\pm0$ & \cc{65} $92\pm3$ & \cc{100} $100\pm0$ \\
+  & s4 & \cc{91} $98\pm4$ & — & — & \cc{100} $100\pm0$ & \cc{0} $0\pm0$ & \cc{100} $100\pm0$ \\
+  & s5 & \cc{100} $100\pm0$ & \cc{0} $0\pm0$ & — & \cc{13} $66\pm24$ & \cc{99} $100\pm0$ & \cc{100} $100\pm0$ \\
+  & s6 & \cc{100} $100\pm0$ & \cc{0} $0\pm0$ & — & \cc{100} $100\pm0$ & \cc{100} $100\pm0$ & \cc{100} $100\pm0$ \\
+\cmidrule(lr){2-8}
+  & \textit{Mean} & \cc{98} \best{$100$} & — & — & \cc{75} $94$ & \cc{37} $82$ & \cc{100} \best{$100$} \\
+\midrule
+\multirow{7}{*}{\rotatebox[origin=c]{90}{Obj.}}
+  & s1 & \cc{0} $8.66\pm7.98$ & — & — & \cc{100} $0.00\pm0.00$ & \cc{3} $0.83\pm0.10$ & \cc{67} $0.01\pm0.02$ \\
+  & s2 & \cc{18} $0.28\pm0.18$ & \cc{100} $0.00\pm0.00$ & \cc{100} $0.00\pm0.00$ & \cc{100} $0.00\pm0.00$ & \cc{27} $0.16\pm0.00$ & \cc{100} $0.00\pm0.00$ \\
+  & s3 & \cc{100} $0.00\pm0.00$ & \cc{100} $0.00\pm0.00$ & \cc{100} $0.00\pm0.00$ & \cc{100} $0.00\pm0.00$ & \cc{43} $0.05\pm0.02$ & \cc{100} $0.00\pm0.00$ \\
+  & s4 & \cc{0} $9.82\pm4.98$ & — & — & \cc{100} $0.00\pm0.00$ & \cc{1} $0.91\pm0.35$ & \cc{67} $0.01\pm0.00$ \\
+  & s5 & \cc{100} $0.00\pm0.00$ & \cc{41} $0.06\pm0.11$ & — & \cc{0} $4.99\pm2.04$ & \cc{26} $0.17\pm0.06$ & \cc{100} $0.00\pm0.00$ \\
+  & s6 & \cc{28} $0.14\pm0.02$ & \cc{67} $0.01\pm0.00$ & — & \cc{100} $0.00\pm0.00$ & \cc{0} $2.68\pm0.16$ & \cc{37} $0.08\pm0.01$ \\
+\cmidrule(lr){2-8}
+  & \textit{Mean} & \cc{0} $3.15$ & — & — & \cc{3} $0.83$ & \cc{3} $0.80$ & \cc{57} \best{$0.02$} \\
+\midrule
+\multirow{7}{*}{\rotatebox[origin=c]{90}{NFE\textsubscript{fwd}}}
+  & s1 & \cc{100} $1.0\pm0.0$ & — & — & \cc{0} $138\pm258$ & \cc{0} $116\pm4$ & \cc{82} $2.0\pm0.0$ \\
+  & s2 & \cc{100} $1.0\pm0.0$ & \cc{70} $3.3\pm0.5$ & \cc{10} $34.5\pm0.0$ & \cc{25} $19.0\pm0.2$ & \cc{0} $114\pm1$ & \cc{82} $2.0\pm0.0$ \\
+  & s3 & \cc{100} $1.0\pm0.0$ & \cc{72} $3.0\pm0.1$ & \cc{10} $34.5\pm0.0$ & \cc{41} $10.1\pm0.3$ & \cc{0} $125\pm2$ & \cc{82} $2.0\pm0.0$ \\
+  & s4 & \cc{100} $1.0\pm0.0$ & — & — & \cc{0} $77.0\pm1.9$ & \cc{0} $131\pm0$ & \cc{82} $2.0\pm0.0$ \\
+  & s5 & \cc{100} $1.0\pm0.0$ & \cc{53} $6.4\pm0.1$ & — & \cc{0} $593\pm41$ & \cc{0} $128\pm2$ & \cc{82} $2.0\pm0.0$ \\
+  & s6 & \cc{100} $1.0\pm0.0$ & \cc{82} $2.0\pm0.0$ & — & \cc{30} $15.7\pm0.0$ & \cc{0} $135\pm1$ & \cc{82} $2.0\pm0.0$ \\
+\cmidrule(lr){2-8}
+  & \textit{Mean} & \cc{100} \best{$1.0$} & — & — & \cc{0} $142$ & \cc{0} $125$ & \cc{82} $2.0$ \\
+\midrule
+\multirow{7}{*}{\rotatebox[origin=c]{90}{NFE\textsubscript{bwd}}}
+  & s1 & \cc{100} $1.0\pm0.0$ & — & — & \cc{29} $16\pm19$ & \cc{0} $115\pm4$ & \cc{82} $2.0\pm0.0$ \\
+  & s2 & \cc{100} $1.0\pm0.0$ & \cc{16} $26.2\pm5.1$ & \cc{21} $22.0\pm0.0$ & \cc{47} $8.0\pm0.1$ & \cc{0} $140\pm1$ & \cc{36} $12.0\pm0.0$ \\
+  & s3 & \cc{100} $1.0\pm0.0$ & \cc{35} $12.8\pm0.8$ & \cc{21} $22.0\pm0.0$ & \cc{56} $5.5\pm0.2$ & \cc{0} $139\pm2$ & \cc{50} $7.0\pm0.0$ \\
+  & s4 & \cc{100} $1.0\pm0.0$ & — & — & \cc{7} $38.7\pm0.6$ & \cc{0} $209\pm1$ & \cc{16} $27.0\pm0.0$ \\
+  & s5 & \cc{100} $1.0\pm0.0$ & \cc{15} $28.0\pm0.3$ & — & \cc{0} $88.0\pm1.1$ & \cc{0} $139\pm2$ & \cc{54} $6.0\pm0.0$ \\
+  & s6 & \cc{100} $1.0\pm0.0$ & \cc{0} $93.0\pm1.1$ & — & \cc{49} $7.3\pm0.0$ & \cc{0} $422\pm5$ & \cc{0} $91.0\pm0.0$ \\
+\cmidrule(lr){2-8}
+  & \textit{Mean} & \cc{100} \best{$1.0$} & — & — & \cc{16} $27.2$ & \cc{0} $194$ & \cc{19} $24.2$ \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,6 @@
+methods: [ipopt]
+benchmark: e3/acopf_ieee57
+seeds: [0, 1, 2]
+
+device: cpu
+multi_start: 20

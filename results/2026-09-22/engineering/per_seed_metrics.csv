@@ -1,0 +1,61 @@
+config,seed,status,run_dir,git_sha,epochs_trained,train_wall_s,predict_wall_s,feasibility_tol1e3,max_eq,mean_eq,max_ineq,mean_ineq,obj,final_train_max_violation,proj_active_max,inf_iters_median,reason
+fsnet,0,ok,20260921T173907Z_fsnet_e3-acopf_ieee57_seed0_8fc18715,53686db,2000,10229.490591580048,2.890291275922209,0.000,6.569e-01,2.072e-01,6.052e-01,2.993e-02,10244.6881,,,50.0,
+fsnet,1,ok,20260921T173910Z_fsnet_e3-acopf_ieee57_seed1_a8447bc5,53686db,2000,16624.60062259296,3.7937180721201003,0.000,6.728e-01,1.972e-01,1.222e-01,3.112e-03,2290.6546,,,50.0,
+fsnet,2,ok,20260921T173911Z_fsnet_e3-acopf_ieee57_seed2_fa3591d1,53686db,2000,14169.628401553025,3.569612000021152,0.000,8.861e+01,4.773e+00,0.000e+00,0.000e+00,26912.7842,,,50.0,
+fsnet,3,ok,20260921T173910Z_fsnet_e3-acopf_ieee57_seed3_8daa29c7,53686db,2000,12647.441582006868,4.7366627040319145,0.000,7.069e-01,2.636e-01,1.057e+00,6.269e-02,12370.0150,,,50.0,
+fsnet,4,ok,20260921T173911Z_fsnet_e3-acopf_ieee57_seed4_901f928a,53686db,2000,13088.897174437065,4.085207008756697,0.000,5.839e-01,1.823e-01,1.149e-01,1.776e-03,924.9428,,,50.0,
+fsnet,5,ok,20260921T173911Z_fsnet_e3-acopf_ieee57_seed5_8c268a9c,53686db,2000,16765.289377128705,3.398609855212271,0.000,7.083e-01,1.982e-01,2.123e-01,4.634e-03,441.6405,,,50.0,
+fsnet,6,ok,20260921T173910Z_fsnet_e3-acopf_ieee57_seed6_10ffa213,53686db,2000,13153.617080853786,3.6658477159217,0.000,5.607e+01,2.887e+00,1.639e-02,1.690e-04,58152.9084,,,50.0,
+fsnet,7,ok,20260921T173910Z_fsnet_e3-acopf_ieee57_seed7_b8e81fd0,53686db,2000,12524.871421242133,5.342752069700509,0.000,2.078e+00,3.344e-01,9.249e-01,3.566e-02,7704.4357,,,50.0,
+fsnet,8,ok,20260921T173908Z_fsnet_e3-acopf_ieee57_seed8_e2478613,53686db,2000,12596.061040126253,3.5554658439941704,0.000,8.659e-01,2.992e-01,1.125e+00,4.417e-02,5052.5534,,,50.0,
+fsnet,9,ok,20260921T173908Z_fsnet_e3-acopf_ieee57_seed9_ff33c878,53686db,2000,12693.517092026304,3.888151658233255,0.000,9.209e-01,3.065e-01,1.001e+00,4.777e-02,1638.8814,,,50.0,
+enforce_v4 (warm-up 1000),0,ok,20260921T182010Z_enforce_v4_e3-acopf_ieee57_seed0_c2cd0dc9,6dfcc62,2000,13957.972684476059,37.79829989513382,,,,,,,21.36882781982422,0.0,5.0,
+enforce_v4 (warm-up 1000),1,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed1_d5755854,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.483882904052734,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),2,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed2_599cd97b,6dfcc62,2000,,,0.000,nan,nan,nan,nan,33398466142738340.0000,21.42696762084961,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),3,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed3_e7c0ef2b,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.584680557250977,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),4,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed4_ececbf13,6dfcc62,2000,,,0.000,nan,nan,nan,nan,2039918692958268.2500,21.930559158325195,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),5,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed5_690d8a21,6dfcc62,2000,,,0.000,nan,nan,nan,nan,865204992931327.0000,21.478891372680664,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),6,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed6_0acbcad8,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.373239517211914,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),7,failed,20260921T182012Z_enforce_v4_e3-acopf_ieee57_seed7_12d37452,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.464609146118164,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),8,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed8_3f65bb79,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.84351348876953,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (warm-up 1000),9,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed9_cd464827,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.820262908935547,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),0,ok,20260921T182017Z_enforce_v4_e3-acopf_ieee57_seed0_5cd9f35b,6dfcc62,2000,36325.51959665597,41.51804164110217,0.000,nan,nan,nan,nan,nan,21.36882781982422,0.0,5.0,predict: projected outputs non-finite
+enforce_v4 (no warm-up),1,failed,20260921T182015Z_enforce_v4_e3-acopf_ieee57_seed1_f15c2f30,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.483882904052734,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),2,failed,20260921T182014Z_enforce_v4_e3-acopf_ieee57_seed2_87dadd3b,6dfcc62,2000,,,0.000,nan,nan,nan,nan,33398466142738340.0000,21.42696762084961,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),3,failed,20260921T182014Z_enforce_v4_e3-acopf_ieee57_seed3_b90c9238,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.584680557250977,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),4,failed,20260921T182014Z_enforce_v4_e3-acopf_ieee57_seed4_45f51865,6dfcc62,2000,,,0.000,nan,nan,nan,nan,2039918692958268.2500,21.930559158325195,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),5,failed,20260921T182010Z_enforce_v4_e3-acopf_ieee57_seed5_fe30d109,6dfcc62,2000,,,0.000,nan,nan,nan,nan,865204992931327.0000,21.478891372680664,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),6,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed6_8c6b5e12,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.373239517211914,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),7,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed7_902a751d,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.464609146118164,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),8,failed,20260921T182010Z_enforce_v4_e3-acopf_ieee57_seed8_6360212d,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.84351348876953,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+enforce_v4 (no warm-up),9,failed,20260921T182011Z_enforce_v4_e3-acopf_ieee57_seed9_7a1a4515,6dfcc62,2000,,,0.000,nan,nan,nan,nan,nan,21.820262908935547,0.0,,predict LinAlgError eigh (before 353738a); NaN outputs with patched fallback
+snarenet,0,failed,20260921T181844Z_snarenet_e3-acopf_ieee57_seed0_b95b37dd,6dfcc62,16,,,0.000,,,,,,nan,,,non-finite loss at epoch 16
+snarenet,1,failed,20260921T181843Z_snarenet_e3-acopf_ieee57_seed1_25c3bcaa,6dfcc62,34,,,0.000,,,,,,nan,,,non-finite loss at epoch 34
+snarenet,2,failed,20260921T181846Z_snarenet_e3-acopf_ieee57_seed2_01730c02,6dfcc62,362,,,0.000,,,,,,nan,,,non-finite loss at epoch 362
+snarenet,3,failed,20260921T181847Z_snarenet_e3-acopf_ieee57_seed3_9df8fbab,6dfcc62,42,,,0.000,,,,,,nan,,,non-finite loss at epoch 42
+snarenet,4,failed,20260921T181846Z_snarenet_e3-acopf_ieee57_seed4_85ce9fca,6dfcc62,63,,,0.000,,,,,,nan,,,non-finite loss at epoch 63
+snarenet,5,failed,20260921T181846Z_snarenet_e3-acopf_ieee57_seed5_5db240de,6dfcc62,13,,,0.000,,,,,,nan,,,non-finite loss at epoch 13
+snarenet,6,failed,20260921T181843Z_snarenet_e3-acopf_ieee57_seed6_9ad69b2a,6dfcc62,83,,,0.000,,,,,,nan,,,non-finite loss at epoch 83
+snarenet,7,failed,20260921T181843Z_snarenet_e3-acopf_ieee57_seed7_2b0d2511,6dfcc62,8,,,0.000,,,,,,nan,,,non-finite loss at epoch 8
+snarenet,8,failed,20260921T181843Z_snarenet_e3-acopf_ieee57_seed8_a666a423,6dfcc62,2,,,0.000,,,,,,nan,,,non-finite loss at epoch 2
+snarenet,9,failed,20260921T181843Z_snarenet_e3-acopf_ieee57_seed9_256bd10b,6dfcc62,150,,,0.000,,,,,,nan,,,non-finite loss at epoch 150
+fsnet (inference max_iter=500),0,ok,,,2000,,,0.000,2.888e-01,9.962e-02,6.730e-01,1.440e-02,42301.7186,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),1,ok,,,2000,,,0.000,1.812e-01,3.556e-02,8.152e-02,1.288e-03,35223.1572,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),2,ok,,,2000,,,0.000,8.861e+01,4.773e+00,0.000e+00,0.000e+00,26912.7842,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),3,ok,,,2000,,,0.000,4.256e-01,1.440e-01,1.591e+00,2.569e-02,44639.3864,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),4,ok,,,2000,,,0.000,1.329e-01,2.970e-02,6.199e-02,3.548e-04,35145.2249,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),5,ok,,,2000,,,0.000,1.454e-01,4.104e-02,1.042e-01,1.665e-03,33687.7654,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),6,ok,,,2000,,,0.000,5.604e+01,2.881e+00,1.493e-02,1.844e-04,60160.6370,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),7,ok,,,2000,,,0.000,3.264e-01,1.293e-01,7.982e-01,2.174e-02,45077.1367,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),8,ok,,,2000,,,0.000,3.927e-01,1.505e-01,1.199e+00,2.429e-02,47671.2598,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=500),9,ok,,,2000,,,0.000,3.114e-01,1.239e-01,9.767e-01,1.438e-02,47160.0272,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),0,ok,,,2000,,,0.453,2.220e-01,8.747e-02,6.508e-01,1.395e-02,45485.4912,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),1,ok,,,2000,,,0.641,1.329e-02,5.224e-03,3.021e-02,8.481e-04,42907.1509,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),2,ok,,,2000,,,0.000,8.861e+01,4.773e+00,0.000e+00,0.000e+00,26912.7842,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),3,ok,,,2000,,,0.000,4.416e-01,1.331e-01,1.592e+00,2.302e-02,46506.5472,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),4,ok,,,2000,,,0.734,1.301e-03,1.718e-04,1.137e-03,4.788e-06,42601.1092,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),5,ok,,,2000,,,0.672,2.031e-02,6.495e-03,5.327e-02,1.303e-03,43182.0036,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),6,ok,,,2000,,,0.078,5.604e+01,2.880e+00,1.406e-02,1.872e-04,60547.2433,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),7,ok,,,2000,,,0.078,2.954e-01,1.150e-01,7.947e-01,1.992e-02,48103.1382,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),8,ok,,,2000,,,0.000,3.793e-01,1.434e-01,1.215e+00,2.351e-02,51026.7017,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap
+fsnet (inference max_iter=5000),9,ok,,,2000,,,0.000,3.374e-01,1.127e-01,9.767e-01,1.427e-02,55639.1319,,,,re-evaluation of the fsnet checkpoints with a larger inference L-BFGS cap

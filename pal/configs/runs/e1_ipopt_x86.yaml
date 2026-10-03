@@ -1,0 +1,16 @@
+methods: [ipopt]
+benchmark: e1/bwb
+seeds: [0]
+
+env:
+  E1_N_STATIONS: 8
+  E1_ALT_LO: 2000
+  E1_ALT_HI: 2000
+  E1_V_LO: 60
+  E1_V_HI: 60
+
+device: cpu
+multi_start: 5
+max_iter: 500
+tol: 1.0e-8
+n_eval: 64

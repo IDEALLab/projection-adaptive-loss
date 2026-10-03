@@ -1,0 +1,3 @@
+method,bench,seed,peak_gpu_mb,elapsed_s,rc
+snarenet,e1/bwb,1,97236,30,1
+snarenet,e1/bwb,0,97263,30,1

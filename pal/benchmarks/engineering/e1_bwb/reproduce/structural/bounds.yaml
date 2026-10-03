@@ -1,0 +1,54 @@
+# Parameter bounds for wingbox sampling.
+# Each entry: [lower, upper]. Sampled uniformly unless noted.
+#
+# Scaling convention:
+#   The BWB geometry is non-dimensional (unit C1 = 1 m).
+#   L (centerline length) sets the physical scale.
+#   - "ratio" params are fractions of C1, invariant to L
+#   - "absolute" params are physical dimensions in meters, independent of L
+#   - "fixed" params are constants (not sampled)
+#   At data gen time, absolute thicknesses are converted to unit coords:
+#     param_unit = param_absolute / L
+
+bwb_conditions:
+  # Shape params (ratios to C1, dimensionless)
+  B1: [0.10, 0.20]
+  B2: [0.05, 0.20]
+  B3: [0.20, 0.70]
+  C2: [0.55, 0.85]
+  C3: [0.18, 0.28]
+  C4: [0.06, 0.09]
+  S1: [40.0, 60.0]
+  S2: [40.0, 60.0]
+  S3: [24.0, 40.0]
+  # Physical scale, log-uniform sampling (matches aero dataset)
+  L: [0.1, 10.0]
+
+structural:
+  # --- Thickness params (unit-scale ratios, scale uniformly with L) ---
+  # Sampled as ratios in unit coords. Physical = value * L.
+  skin_t: [0.005, 0.020]         # ratio of C1 (5-20 mm at L=1m)
+  front_spar_w: [0.020, 0.050]   # ratio of C1
+  rear_spar_w: [0.020, 0.030]    # ratio of C1
+
+  # --- Ratio params (fractions of C1, invariant to L) ---
+  front_spar_x: [-0.35, -0.15]   # chordwise position
+  front_spar_dev: [0.0, 5.0]     # sweep angle deviation (degrees)
+  # Bimodal: sampled as Gaussian mixture in sample.py, not uniform.
+  # Mode 1 "on":  N(-0.50, 0.07), spar inside BWB
+  # Mode 2 "off": N(-1.30, 0.10), spar past TE, clipped away by BWB
+  rear_spar_x: [-2.00, -0.20]    # chordwise position
+  bat_x: [0.50, 2.00]
+  bat_y: [0.08, 0.25]
+  bat_z: [0.03, 0.20]
+  bat_z_center: [-0.08, 0.08]
+  rib_start_y: [0.18, 0.30]
+  # rib_end_y: FRACTION of span (B1+B2+B3), resolved to fraction * span at
+  # sampling time so rib5 stays inside the wingtip for small-span configs.
+  rib_end_y: [0.70, 0.95]
+
+  # --- Fixed rib thicknesses (scaled with L) ---
+  # Ribs are excluded from structural stiffness output.
+  # Fixed as ratio of L to simplify sampling. Not free parameters.
+  rib_w: 0.025                    # fixed ratio (= 0.025 * L physical)
+  center_rib_w: 0.020             # fixed ratio (= 0.020 * L physical)

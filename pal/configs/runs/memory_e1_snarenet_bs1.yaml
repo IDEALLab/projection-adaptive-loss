@@ -1,0 +1,8 @@
+methods: [snarenet]
+benchmarks: [e1/bwb]
+seeds: [0, 1]
+
+epochs: 2
+batch_size: 1
+lr: 1.0e-4
+device: cuda

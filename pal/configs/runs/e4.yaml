@@ -1,0 +1,8 @@
+methods: [pal_loggap, alm, fsnet, snarenet]
+benchmark: e4/chip_layout
+seeds: [0, 1, 2]
+
+epochs: 2000
+device: cpu
+eval_points: pal/configs/eval_points/e4.json
+measure_repair_mem: true

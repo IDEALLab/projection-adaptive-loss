@@ -1,0 +1,15 @@
+# ALM hparams, e1-specific override of alm.yaml. gamma picked from a 5-run gamma x alpha sweep.
+
+gamma: 1.0e-3                # paper: 1e-2
+alpha: 0.99                  # paper default
+eps: 1.0e-8                  # paper default
+mu_init: 1.0                 # paper default
+lambda_init: 1.0             # paper default
+
+epochs: 2000
+batch_size: 32
+lr: 1.0e-4
+grad_clip: 20.0
+
+hidden: 512
+n_layers: 4

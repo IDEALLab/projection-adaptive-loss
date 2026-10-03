@@ -1,0 +1,5 @@
+shard,query,restart,complete,status,status_msg,n_iter,wall_s,obj_final,max_viol_final,best_max_viol,best_obj,feasible_at_1e-4,feasible_at_paper_tol
+shard000,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,120,2081.9805349949747,-0.03617646172642708,0.0,0.0,-0.007133932784199715,True,True
+shard001,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,120,2457.0304667491,-0.035533737391233444,0.0,0.0,-0.005519666243344545,True,True
+shard002,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,97,1303.9809422539547,-0.03673454746603966,0.0,0.0,-0.010406608693301678,True,True
+shard003,0,0,True,2,Algorithm converged to a point of local infeasibility. Problem may be infeasible.,194,3199.653210073011,-0.037719495594501495,0.0,0.0,-0.005536203272640705,True,True

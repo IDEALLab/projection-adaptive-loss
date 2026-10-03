@@ -1,0 +1,100 @@
+/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:64: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[pal run] snarenet / e1/bwb / seed=6 → 20260925T114421Z_snarenet_e1-bwb_seed6_cb40db99 (device=cuda, n_eval=64, fingerprint=sha256:0920960df6...)
+/workspace/pal/pal/benchmarks/engineering/e1_bwb/benchmark.py:195: UserWarning: The balance properties of Sobol' points require n to be a power of 2.
+  draw = sampler.random(N).reshape(N)               # [N] numpy
+Traceback (most recent call last):
+  File "/workspace/pal/pal/runner/cli.py", line 973, in main
+    _run_one(method, bench_id, seed, args, runs_root)
+  File "/workspace/pal/pal/runner/cli.py", line 1109, in _run_one
+    train_result = solver.train(
+                   ^^^^^^^^^^^^^
+  File "/workspace/pal/pal/baselines/snarenet/solver.py", line 252, in train
+    y = net(x)                                      # repair runs inside
+        ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1777, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1788, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/baselines/snarenet/upstream/models/snarenet.py", line 179, in forward
+    out = self._repair(out, x)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1777, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1788, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/baselines/snarenet/upstream/models/snarenet.py", line 64, in forward
+    return self.repair(output, *constraint_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/baselines/snarenet/upstream/models/snarenet.py", line 102, in repair
+    g_y = g(y)
+          ^^^^
+  File "/workspace/pal/pal/baselines/snarenet/data_shim.py", line 156, in <lambda>
+    return lambda y: self._g_batched(y)
+                     ^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/baselines/snarenet/data_shim.py", line 132, in _g_batched
+    _, constraints = self.bench.forward(y_cast, self._x)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/runner/probe.py", line 240, in forward
+    obj, cons = self._bench.forward(x, conditions)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/benchmarks/engineering/e1_bwb/benchmark.py", line 271, in forward
+    loads = self._compute_loads(self._last_program, dec, conditions, y_stations)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/benchmarks/engineering/e1_bwb/loads.py", line 328, in __call__
+    results = program.isocontour(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/geometry/program.py", line 2066, in isocontour
+    return isocontour_extract(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/geometry/measure/isocontour.py", line 687, in isocontour_extract
+    cell_corner_pos, corner_sdf, B = _quadtree_corners(
+                                     ^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/geometry/measure/isocontour.py", line 281, in _quadtree_corners
+    sdf_flat = shape(query_3d)
+               ^^^^^^^^^^^^^^^
+  File "/workspace/pal/geometry/core.py", line 76, in __call__
+    return self.sdf_fn(points)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/geometry/stdlib/neural_primitives.py", line 502, in sdf_fn
+    return _eval_chunks(p_batched)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/geometry/stdlib/neural_primitives.py", line 494, in _eval_chunks
+    sdf_chunks.append(_forward(model, p_chunk, cond_on_device))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/benchmarks/engineering/e1_bwb/bwb_sdf/inference.py", line 189, in forward
+    return model(points, cond_norm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1777, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1788, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/pal/pal/benchmarks/engineering/e1_bwb/bwb_sdf/sdf_net.py", line 180, in forward
+    x = self.block1(x)
+        ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1777, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1788, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1777, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1788, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 MiB. GPU 0 has a total capacity of 95.00 GiB of which 57.88 MiB is free. Including non-PyTorch memory, this process has 94.92 GiB memory in use. Of the allocated memory 91.78 GiB is allocated by PyTorch, and 2.37 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[pal run] done. ok=0 fail=1

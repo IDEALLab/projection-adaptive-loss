@@ -1,0 +1,27 @@
+# DC3 hparams, acopf tier (all e3/* benchmarks); default_args.py::method_default_args('acopf').
+
+epochs: 2000
+batch_size: 200             # default_args.py:176
+lr: 1.0e-3                  # default_args.py:177
+grad_clip: 0.0
+
+# train_dataset_size > 0: paper DC3MLP + fixed training pool; 0: CoordinationMLP + fresh sampling.
+hidden: 512                 # paper default_args.py:178 = 200 (used when train_dataset_size=0)
+n_layers: 4                 # paper = 2 (used when train_dataset_size=0)
+train_dataset_size: 0       # 1000 = paper-faithful pool
+
+soft_weight: 10000.0        # paper = 10 on a genbase.mean()^2-normalized objective; e3 cost is unnormalized
+soft_eq_frac: 0.5           # default_args.py:180
+
+use_train_corr: true        # default_args.py:182
+use_test_corr: true         # default_args.py:183
+corr_train_steps: 5         # default_args.py:185 (nonconvex: 10)
+corr_test_max_steps: 5      # default_args.py:186 (nonconvex: 10)
+corr_eps: 1.0e-4            # default_args.py:187
+corr_lr: 1.0e-4             # default_args.py:188 (nonconvex: 1e-7)
+corr_momentum: 0.5          # default_args.py:189
+
+# Two-step ACOPF completion (paper App. C.3); tol 1e-5 since Newton stalls at the fp32 floor (~1.4e-5).
+newton_max_iter: 50
+newton_tol: 1.0e-5
+newton_reg: 1.0e-8

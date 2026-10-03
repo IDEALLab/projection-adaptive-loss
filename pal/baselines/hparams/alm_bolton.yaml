@@ -1,0 +1,25 @@
+# ALM+Bolt-On hparams: ALM training as in alm.yaml, plus an LM projector at inference only.
+
+gamma: 1.0e-2
+alpha: 0.99
+eps: 1.0e-8
+mu_init: 1.0
+lambda_init: 1.0
+
+epochs: 2000
+batch_size: 32
+lr: 1.0e-4
+grad_clip: 20.0  # must equal alm.yaml
+
+hidden: 512
+n_layers: 4
+
+# LM projector at inference
+proj_method: lm_k
+proj_delta: 1.0e-3
+proj_prescale: false
+proj_prescale_floor: 1.0
+proj_max_iters: 10
+proj_tol: 1.0e-6
+eps_active: 1.0e-4
+detach_j: true

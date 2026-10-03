@@ -1,0 +1,28 @@
+# FSNet hparams (Nguyen & Donti, arXiv:2506.00362v2), upstream MOSSLab-MIT/FSNet @ 911fcb2.
+# Sources inline: paper Table C.1, else upstream/configs/default.yaml.
+
+epochs: 2000                 # paper Table C.1: 100
+steps_per_epoch: 20          # not in paper: 10000 samples / batch 512 ~ 20 batches per epoch
+batch_size: 512              # paper value, the runner overrides it per bench
+lr: 1.0e-4                   # paper Table C.1: 5e-4
+lr_decay: 0.5                # Table C.1; default.yaml:11
+lr_decay_step: 2000          # Table C.1; default.yaml:12
+weight_decay: 1.0e-3         # upstream/utils/trainer.py:366, tuned for hidden_dim=1024
+grad_clip: 1.0               # upstream/utils/trainer.py:302
+dropout: 0.0                 # default.yaml:16
+
+# FSNet's MLP (SiLU hidden, Sigmoid output), not CoordinationMLP
+hidden_dim: 512              # paper Table C.1: 1024
+num_layers: 4                # Table C.1; default.yaml:15
+
+obj_weight: 1.0              # default.yaml:34
+dist_weight: 5.0             # default.yaml:35
+eq_pen_weight: 10.0          # Table C.1; default.yaml:36
+ineq_pen_weight: 10.0        # Table C.1; default.yaml:37
+val_tol: 1.0e-7              # default.yaml:38
+test_val_tol: 1.0e-9         # default.yaml:39 (eval only)
+decay_tol_step: 100          # default.yaml:40 (val_tol /= 10 every N epochs)
+memory_size: 30              # Table C.1; default.yaml:41
+max_iter: 50                 # Table C.1; default.yaml:42
+max_diff_iter: 30            # default.yaml:43; paper App B.4 finds K' in [10, 50] insensitive
+scale: 1000.0                # default.yaml:44 (L-BFGS line-search scale)

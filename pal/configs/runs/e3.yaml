@@ -1,0 +1,8 @@
+methods: [pal_loggap, alm, dc3, snarenet]
+benchmark: e3/acopf_ieee57
+seeds: [0, 1, 2]
+
+protocol: paper-faithful
+epochs: 2000
+device: cpu
+measure_repair_mem: true

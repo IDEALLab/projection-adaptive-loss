@@ -1,0 +1,17 @@
+{
+  "benchmark": "e1",
+  "frozen_at": "2026-05-02",
+  "rationale": "Single deterministic operating point at the cruise-envelope center: (alt, V_cruise) = (2000 m, 60 m/s). Zero zeta. Trained methods evaluate at the same fixed condition (E1_ALT_LO=E1_ALT_HI=2000, E1_V_LO=E1_V_HI=60), and IPOPT runs 20 multistarts on this single point.",
+  "points": [
+    {"zeta": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "condition": [2000.0, 60.0]}
+  ],
+  "ipopt": {
+    "n_multistarts": 20,
+    "max_iter": 500,
+    "tol": 1e-6,
+    "constr_viol_tol": 1e-4,
+    "mu_strategy": "adaptive",
+    "mu_oracle": "quality-function",
+    "hessian_approximation": "limited-memory"
+  }
+}
