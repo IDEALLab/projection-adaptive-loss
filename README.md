@@ -6,6 +6,7 @@ Tim Aebersold, Soheyl Massoudi, Mark Fuge
 
 ETH Zürich
 
+[![arXiv](https://img.shields.io/badge/arXiv-2610.04572-b31b1b.svg)](https://arxiv.org/abs/2610.04572)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](.python-version)
 
@@ -111,9 +112,10 @@ python -m pytest tests -q
 ## Citation
 
 ```bibtex
-@misc{aebersold2026onlyprojectonce,
-  title  = {Only Project Once: Projection-Adaptive Loss for Exact Constraint Satisfaction},
-  author = {Aebersold, Tim and Massoudi, Soheyl and Fuge, Mark},
-  year   = {2026}
+@article{aebersold2026onlyprojectonce,
+  title   = {Only Project Once: Projection-Adaptive Loss for Exact Constraint Satisfaction},
+  author  = {Aebersold, Tim and Massoudi, Soheyl and Fuge, Mark D.},
+  journal = {arXiv preprint arXiv:2610.04572},
+  year    = {2026}
 }
 ```
